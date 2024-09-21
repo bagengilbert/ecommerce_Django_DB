@@ -62,12 +62,13 @@ class OrderItem(models.Model):
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cart',null=True, blank=True)
     session_id = models.CharField(max_length=100, null=True, blank=True)
-    items = models.ManyToManyField(Product, through='CartItem' )
+    items = models.ManyToManyField('CartItem', related_name='cart_items')
 
 
 class CartItem(models.Model):
-    user = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
+    user = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='cart_items')
     Product = models.ForeignKey( Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cart_items')  
     quantity = models.PositiveIntegerField(default=1)
 
  
@@ -152,7 +153,7 @@ class Tax(models.Model):
     state = models.CharField(max_length=100,null=True, blank=True) 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+ 
 class Subscription(models.Model):
     email = models.EmailField(unique=True)
     subscribed_at = models.DateTimeField(auto_now_add=True)

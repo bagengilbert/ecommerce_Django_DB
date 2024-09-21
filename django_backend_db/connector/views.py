@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets # type: ignore
 from .models import(User,Vendor,Product, Category,Order,OrderItem,Payment, 
                     Review,Coupon,Cart,CartItem,Wishlist,Shipping, 
                     Notification, Blog,Contact,FAQ,Analytics,
@@ -9,9 +9,7 @@ from .serializers import(ProductSerializer, UserSerializer, VendorSerializer, Ca
                         ReviewSerializer, BlogSerializer, CartSerializer,CartItemSerializer, WishlistSerializer, ShippingSerializer, AnalyticsSerializer,
                         RefundSerializer, ConfigurationSerializer, FAQSerializer, SubscriptionSerializer, CouponSerializer, TaxSerializer,
                         NotificationSerializer, ContactSerializer)
-User
-User
-User
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
