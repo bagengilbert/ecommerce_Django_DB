@@ -8,6 +8,9 @@ class User(models.Model):
     is_vendor = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+    
 
 
 class Vendor(models.Model):
