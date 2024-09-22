@@ -1,4 +1,4 @@
-from rest_framework import serializers # type: ignore
+from rest_framework import serializers 
 from .models import(  User, Vendor, Product, Category,Order,  OrderItem, 
                     Review, Coupon, Cart, CartItem, Wishlist, Shipping, 
                     Notification, Blog, Contact,FAQ, Analytics,
