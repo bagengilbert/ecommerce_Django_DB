@@ -100,9 +100,11 @@ DATABASES = {
         'PASSWORD': 'VOXhxnA9cMe0W18D',
         'HOST': 'aws-0-eu-central-1.pooler.supabase.com',
         'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
